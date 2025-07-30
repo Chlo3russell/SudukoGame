@@ -27,7 +27,7 @@ grid =[
 
 # fonts for future use
 font1 = pygame.font.SysFont("comicsans", 40)
-font2 = pygame.font.SysFont("comicsans", 20)
+font2 = pygame.font.SysFont("comicsans", 30)
 
 #glonbal variables for grid position and value
 x = 0
@@ -56,6 +56,12 @@ def createBoard():
             thick = 1
         pygame.draw.line(board, (0, 0, 0), (0, i * sizeOfCell), (sizeX, i * sizeOfCell), thick)
         pygame.draw.line(board, (0, 0, 0), (i * sizeOfCell, 0), (i * sizeOfCell, sizeX), thick)  
+
+    # .render takes parameters: text, antialiasing, color
+    text = font2.render("Click on a cell to place a number", True, (0, 0, 0))
+    # .blit takes parameters: surface, text, position
+    board.blit(text, (10, sizeX + 20))  # 10 pixels from left, 20 pixels below the board
+
 
 
 '''
